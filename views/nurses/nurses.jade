@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  a.goback(href="/")
+  img.header.vip(src='/img/nurses/nurse-header.png')
+  ol.nurses
+    for n in nurses
+      li
+        a(href="#{n.link}")
+          img(src="/img/nurses/#{n.img}")
+          h4 #{n.name}

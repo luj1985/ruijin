@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  a.goback(href="/")
+  img.header.vip(src='/img/vips/vip-header.png')
+  ol.vips
+    for vip in vips
+      li
+        a(href="#{vip.link}")
+          img(src="/img/vips/#{vip.img}")
+          h4 #{vip.name}

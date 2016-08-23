@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  a.goback(href="/")
+  img.header(src='/img/location/header.png')
+  a(href='#{location}')
+    img.full(src="#{map}")
+  a.navigation(href='#{navigation}') 我要导航
