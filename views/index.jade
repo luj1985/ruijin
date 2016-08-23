@@ -3,6 +3,6 @@ extends layout
 block content
   img.header(src='/img/header.png')
   ul.main.menu
-    for menu in menus
+    for menu in model
       li
         a(href="#{menu.link}") #{menu.text}

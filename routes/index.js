@@ -1,16 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-const menus = [
-  { link : '/introduction', text : '论坛介绍' },
-  { link : '/vips', text : 'VIP专家介绍' },
-  { link : '/nurses', text : '护理专家' },
-  { link : '/participants', text : '参会人员' },
-  { link : '/agenda', text : '大会日程' },
-  { link : '/location', text : '地图导航' },
-  { link : '/contact', text : '联络我们' }
-];
-
 const vips = [
   { name: "殿塚 亮祐", img: "1殿塚 亮祐.jpg", detail: "详细-33.jpg", link: "/vips/1" },
   { name: "龚彪", img: "2龚彪.jpg", detail: "详细-34.jpg", link: "/vips/2" },
@@ -38,93 +28,61 @@ const nurses = [
   { name: "甘和平", img: "4甘和平.png", detail: "4.png", link: "/nurses/4" },
   { name: "王萍", img: "5王萍.png", detail: "5.png", link: "/nurses/5" },
   { name: "席惠君", img: "6席惠君.png", detail: "6.png", link: "/nurses/6" }
-]
+];
+
+const locations = {
+  location : 'http://api.map.baidu.com/geocoder?address=上海瑞金医院&output=html',
+  image : 'http://api.map.baidu.com/staticimage/v2?ak=EFjt6oKsiZ1lejOMPCQnE0DA&center=121.472905,31.21648&width=400&height=420&zoom=18&copyright=1&markers=上海瑞金医院'
+};
+
+
+const menus = [
+  { link : '/introduction', view: 'introduction', text : '论坛介绍' },
+  { link : '/vips', view : 'vips/index', text : 'VIP专家介绍', model: vips },
+  { link : '/nurses', view : 'nurses/index', text : '护理专家', model: nurses },
+  { link : '/participants', view : 'participants', text : '参会人员' },
+  { link : '/agenda', view : 'agenda', text : '大会日程' },
+  { link : '/location', view : 'location', text : '地图导航', model : locations },
+  { link : '/contact', view : 'contact', text : '联络我们' }
+];
 
 
 router.get('/', function(req, res) {
   res.render('index', {
-    bodyStyle : 'home',
-    menus : menus
+    title : '肝胆胰疾病内镜诊疗高峰论坛',
+    style : 'home',
+    model : menus
   });
 });
 
-router.get('/introduction', function(rq, res) {
-  res.render('introduction', {
-    bodyStyle : 'article'
-  });
-});
-
-router.get('/vips', function(req, res) {
-  res.render('vips/vips', {
-    bodyStyle : 'article',
-    vips : vips
-  })
-});
-
-router.get('/vips/:id', function(req, res) {
-  var index = parseInt(req.params.id);
-  var vip = vips[index - 1];
-  if (vip) {
-    var img = vip.detail;
-    res.render('vips/vip', {
-      bodyStyle : 'article',
-      detail : img
+menus.forEach(function(m) {
+  router.get(m.link, function(req, res) {
+    res.render(m.view, {
+      title : m.text,
+      model : m.model
     });
-  } else {
-    res.status(404);
-  }
-});
-
-router.get('/nurses', function(req, res) {
-  res.render('nurses/nurses', {
-    bodyStyle : 'article',
-    nurses : nurses
-  })
-});
-
-router.get('/nurses/:id', function(req, res) {
-  var index = parseInt(req.params.id);
-  var n = nurses[index - 1];
-  if (n) {
-    var img = n.detail;
-    res.render('nurses/nurse', {
-      bodyStyle : 'article',
-      detail : img
-    });
-  } else {
-    res.status(404);
-  }
-});
-
-router.get('/participants', function(req, res) {
-  res.render('participants', {
-    bodyStyle : 'article'
   });
 });
 
-router.get('/agenda', function(req, res) {
-  res.render('agenda', {
-    bodyStyle : 'article'
+const DETAILS = [
+  { path : '/vips/:id', view : 'vips/vip', data : vips},
+  { path : '/nurses/:id', view : 'nurses/nurse', data : nurses}
+];
+
+DETAILS.forEach(function(d) {
+  router.get(d.path, function(req, res) {
+    var index = parseInt(req.params.id);
+    var n =　d.data[index - 1];
+    if (n) {
+      res.render(d.view, {
+        title : n.name,
+        detail : n.detail
+      });
+    } else {
+      res.status(404);
+    }
   });
-});
+})
 
-// 121.472905,31.21648
-router.get('/location', function(req, res) {
-  var location = 'http://api.map.baidu.com/geocoder?address=上海瑞金医院&output=html';
-  var map = 'http://api.map.baidu.com/staticimage/v2?ak=EFjt6oKsiZ1lejOMPCQnE0DA&center=121.472905,31.21648&width=400&height=420&zoom=18&copyright=1&markers=上海瑞金医院';
-  var navigation = location;
-  res.render('location', {
-    bodyStyle : 'article',
-    location : location,
-    map: map,
-    navigation : navigation
-  })
-});
-
-router.get('/contact', function(req, res) {
-  res.render('contact', {
-    bodyStyle : 'article'
-  })
-});
 
 module.exports = router;

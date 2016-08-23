@@ -9,5 +9,5 @@ html(lang='zh')
     block js
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
-  body(class='#{bodyStyle || ""}')
+  body(class='#{style || "article"}')
     block content

@@ -4,7 +4,7 @@ block content
   a.goback(href="/")
   img.header.vip(src='/img/nurses/nurse-header.png')
   ol.nurses
-    for n in nurses
+    for n in model
       li
         a(href="#{n.link}")
           img(src="/img/nurses/#{n.img}")

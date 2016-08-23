@@ -1,55 +1,44 @@
 @primary-button-bgcolor: #6CBAFB;
+@base-line-height: 14px;
+@navigation-font-size: 1.5rem;
 
 body {
-  line-height: 14px;
+  line-height: @base-line-height;
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: @base-line-height "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  background-position: top auto;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
 
   &.home {
     background-image: url('/img/home.jpg');
-    background-position: top auto;
-    background-size: 100% auto;
-    background-repeat: repeat-y;
   }
 
   &.article {
     background-image: url('/img/background.jpg');
-    background-position: top auto;
-    background-size: 100% auto;
-    background-repeat: repeat-y;
   }
 }
 
 img.header {
   display: block;
   width: 80%;
-  margin: 8rem auto 1rem auto;
+  margin: 6rem auto 1rem auto;
   &.vip {
     margin-top: 5rem;
   }
-}
-
-img.full {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 
 img.contact {
   margin-top: 8rem;
 }
 
-a.navigation {
+img.full, a.navigation {
   width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
-  background: @primary-button-bgcolor;
-  margin: 1rem auto 0 auto;
-  text-align: center;
-  padding: .5rem 0;
-  font-size: 1.3rem;
-  border-radius: 3px;
 }
 
 a {
@@ -57,11 +46,20 @@ a {
   text-decoration: none;
 }
 
+
+a.navigation {
+  background: @primary-button-bgcolor;
+  margin-top: 1rem;
+  text-align: center;
+  padding: .5rem 0;
+  font-size: 1.3rem;
+  border-radius: 3px;
+}
 a.goback {
+  font-size: @navigation-font-size;
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 1.5rem;
   width: 77px;
   height: 31px;
   background-image: url('/img/back.png');
