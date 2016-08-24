@@ -4,9 +4,9 @@ block content
   a.goback(href="/")
   img.header.vip(src='/img/vips/vip-header.png')
   ol.vips
-    for vip in model
+    for vip, i in model
       li
-        a(href="#{vip.link}")
+        a(href="/vips/#{i + 1}")
           img(src="/img/vips/#{vip.img}")
           h4 #{vip.name} 
           h5 
