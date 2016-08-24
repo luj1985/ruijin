@@ -32,7 +32,7 @@ const nurses = [
 
 const locations = {
   location : 'http://api.map.baidu.com/geocoder?address=上海瑞金医院&output=html',
-  image : 'http://api.map.baidu.com/staticimage/v2?ak=EFjt6oKsiZ1lejOMPCQnE0DA&center=121.472905,31.21648&width=400&height=420&zoom=18&copyright=1&markers=上海瑞金医院'
+  image : '/img/location/location.jpg'
 };
 
 
