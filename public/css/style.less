@@ -13,11 +13,11 @@ body {
   background-repeat: repeat-y;
 
   &.home {
-    background-image: url('/img/home.jpg');
+   background-image: url('/img/home.jpg');
   }
 
   &.article {
-    background-image: url('/img/background.jpg');
+   background-image: url('/img/background.jpg');
   }
 }
 
@@ -26,7 +26,7 @@ img.header {
   width: 80%;
   margin: 6rem auto 1rem auto;
   &.vip {
-    margin-top: 5rem;
+   margin-top: 5rem;
   }
 }
 
@@ -78,62 +78,85 @@ ul.main.menu {
   padding: 0;
 
   li {
-    text-align: center;
-    margin: 1rem auto;
-    list-style-type: none;
-    text-align: center;
+   text-align: center;
+   margin: 1rem auto;
+   list-style-type: none;
+   text-align: center;
   }
 
   a {
-    display: inline-block;;
-    width: 200px;
-    background-color: @primary-button-bgcolor;
-    border-radius: 3px;
-    padding: 4px;
-    font-size: 1.2rem;
+   display: inline-block;;
+   width: 200px;
+   background-color: @primary-button-bgcolor;
+   border-radius: 3px;
+   padding: 4px;
+   font-size: 1.2rem;
   }
 }
 
 ol.vips, ol.nurses {
   padding: 0;
   li {
-    width: 29.5%;
-    display: inline-block;
-    margin-left: 3%;
+   width: 29.5%;
+   display: inline-block;
+   margin-left: 3%;
   }
 
   img {
-    width: 100%;
+   width: 100%;
   }
 
   h4 {
-    margin-top: 8px;
-    margin-bottom: .5rem;
+   margin-top: 8px;
+   margin-bottom: .5rem;
   }
 
   h5 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    font-size: .8rem;
-    display: block;
-    span {
-      padding: 4px 8px;
-      background-color: #083B70;
-    }
+   margin-top: 0;
+   margin-bottom: 1.5rem;
+   font-size: .8rem;
+   display: block;
+   span {
+    padding: 4px 8px;
+    background-color: #083B70;
+   }
   }
 
   a {
-    text-align: center;
+   text-align: center;
   }
 }
 
-// 
-//
-// .rolling {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100px;
-//   height: 100px;
-//   background-image: url('/img/ball.png');
-// }
+.ball {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background-image: url('/img/ball.png');
+  background-size: 100% 100%;
+}
+
+.home .ball {
+  top: -80px;
+  left: ~"calc((100% - 160px)/2)";
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.article .ball {
+  top: -80px;
+  left: -50px;
+}
+
+.rolling {
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}

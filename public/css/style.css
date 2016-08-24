@@ -111,3 +111,33 @@ ol.vips a,
 ol.nurses a {
   text-align: center;
 }
+.ball {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background-image: url('/img/ball.png');
+  background-size: 100% 100%;
+}
+.home .ball {
+  top: -80px;
+  left: calc((100% - 160px)/2);
+  transform: translateX(-50%) translateY(-50%);
+}
+.article .ball {
+  top: -80px;
+  left: -50px;
+}
+.rolling {
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
