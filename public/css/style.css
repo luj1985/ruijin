@@ -183,7 +183,7 @@ ol.nurses a {
   background-position: center center;
 }
 .bounceInDown {
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-fill-mode: both;
   animation-name: bounceInDown;
 }
