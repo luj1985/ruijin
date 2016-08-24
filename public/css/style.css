@@ -6,6 +6,7 @@ body {
   background-position: top auto;
   background-size: 100% auto;
   background-repeat: repeat-y;
+  padding-bottom: 1rem;
 }
 body.home {
   background-image: url('/img/home.jpg');
@@ -25,14 +26,18 @@ img.contact {
   margin-top: 8rem;
 }
 img.full,
-a.navigation {
+a.navigation,
+.location {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
-img.full {
-  margin-bottom: 1rem;
+.location {
+  position: relative;
+}
+.location .map {
+  width: 100%;
 }
 a {
   color: white;
@@ -60,7 +65,6 @@ a.goback {
 ul.main.menu {
   display: block;
   margin-top: 2rem;
-  margin-bottom: 1rem;
   padding: 0;
 }
 ul.main.menu li {
@@ -140,4 +144,46 @@ ol.nurses a {
   to {
     transform: rotate(360deg);
   }
+}
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+.marker {
+  position: absolute;
+  top: calc((100% - 88px)*0.44);
+  left: calc((100% - 116px)*0.6);
+  width: 116px;
+  height: 88px;
+  background-repeat: no-repeat;
+  background-image: url('/img/location/marker.png');
+  background-size: 100% 100%;
+  background-position: center center;
+}
+.bounceInDown {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: bounceInDown;
 }

@@ -3,6 +3,8 @@ extends layout
 block content
   a.goback(href="/")
   img.header(src='/img/location/header.png')
-  a(href='#{model.location}')
-    img.full(src="#{model.image}")
+  div.location
+    img.map(src="#{model.image}")
+    .marker.bounceInDown
+      
   a.navigation(href='#{model.location}') 我要导航
