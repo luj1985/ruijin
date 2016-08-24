@@ -93,6 +93,19 @@ ol.nurses img {
 ol.vips h4,
 ol.nurses h4 {
   margin-top: 8px;
+  margin-bottom: .5rem;
+}
+ol.vips h5,
+ol.nurses h5 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: .8rem;
+  display: block;
+}
+ol.vips h5 span,
+ol.nurses h5 span {
+  padding: 4px 8px;
+  background-color: #083B70;
 }
 ol.vips a,
 ol.nurses a {
