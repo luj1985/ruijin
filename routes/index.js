@@ -27,7 +27,8 @@ const nurses = [
   { name: "糜琛蓉", img: "3糜琛蓉.png", detail: "3.png" },
   { name: "甘和平", img: "4甘和平.png", detail: "4.png" },
   { name: "王萍", img: "5王萍.png", detail: "5.png" },
-  { name: "席惠君", img: "6席惠君.png", detail: "6.png" }
+  { name: "席惠君", img: "6席惠君.png", detail: "6.png" },
+  { name: "杨丽", img: "7杨丽.png", detail: "7.png"}
 ];
 
 const locations = {
