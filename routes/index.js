@@ -36,17 +36,25 @@ const locations = {
   image : '/img/location/location.jpg'
 };
 
+const photos = [
+  { text : "8月26日", name: "8月26日", detail : [
+    "0U4A5292.jpg", "0U4A5315.jpg", "0U4A5339.jpg", "0U4A5416.jpg", "DSC_4036.jpg", "DSC_4083.jpg", "DSC_4126.jpg", "DSC_4200.jpg", "DSC_4222.jpg",
+    "0U4A5314.jpg", "0U4A5323.jpg", "0U4A5356.jpg", "DSC_4003.jpg", "DSC_4055.jpg", "DSC_4096.jpg", "DSC_4170.jpg", "DSC_4202.jpg", "DSC_4232.jpg"
+  ] },
+  { text : "8月27日", name: "8月27日", detail : [] },
+  { text : "8月28日", name: "8月28日", detail : [] }
+]
 
 const menus = [
   { link : '/introduction', view: 'introduction', text : '论坛介绍' },
-  { link : '/vips', view : 'vips/index', text : 'VIP专家介绍', model: vips },
   { link : '/nurses', view : 'nurses/index', text : '护理专家', model: nurses },
-  { link : '/participants', view : 'participants', text : '参会人员' },
   { link : '/agenda', view : 'agenda', text : '大会日程' },
   { link : '/location', view : 'location', text : '地图导航', model : locations },
+  { link : '/vips', view : 'vips/index', text : 'VIP专家介绍', model: vips },
+  { link : '/participants', view : 'participants', text : '参会人员' },
+  { link : '/photos', view : 'photos/index', text : '大会照片', model: photos },
   { link : '/contact', view : 'contact', text : '联络我们' }
 ];
-
 
 router.get('/', function(req, res) {
   res.render('index', {
@@ -66,8 +74,9 @@ menus.forEach(function(m) {
 });
 
 const DETAILS = [
-  { path : '/vips/:id', view : 'vips/vip', data : vips},
-  { path : '/nurses/:id', view : 'nurses/nurse', data : nurses}
+  { path : '/vips/:id', view : 'vips/vip', data : vips },
+  { path : '/nurses/:id', view : 'nurses/nurse', data : nurses },
+  { path : '/photos/:id', view : 'photos/photo', data : photos}
 ];
 
 DETAILS.forEach(function(d) {

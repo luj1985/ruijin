@@ -42,7 +42,9 @@ img.full, a.navigation, .location {
   display: block;
 }
 
-img.full {
+img.full.show {
+  margin-bottom: 1.5rem;
+  width: 80%;
 }
 
 .location {
@@ -67,6 +69,7 @@ a.navigation {
   font-size: 1.3rem;
   border-radius: 3px;
 }
+
 a.goback {
   font-size: @navigation-font-size;
   position: absolute;
@@ -80,20 +83,39 @@ a.goback {
 }
 
 ul.main.menu {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-count: 2;
+
+  -moz-column-gap: 1rem;
+  -webkit-column-gap: 1rem;
+  column-gap: 1rem;
+}
+
+ul.photos.menu {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+ul.photos.list.menu {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+ul.menu {
   display: block;
   margin-top: 2rem;
-  padding: 0;
+  padding: 0 1.5rem;
 
   li {
    text-align: center;
-   margin: 1rem auto;
+   margin-top: 1rem;
    list-style-type: none;
    text-align: center;
   }
 
   a {
-   display: inline-block;;
-   width: 200px;
+   display: block;
    background-color: @primary-button-bgcolor;
    border-radius: 3px;
    padding: 4px;

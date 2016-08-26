@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  a.goback(href="/photos")
+  ul.photos.list.menu
+    li
+      a(href="#") #{title}
+      
+  for d, i in detail
+    img.full.show(src="/img/photos/#{d}")
+  

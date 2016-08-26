@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  a.goback(href="/")
+  img.header(src='/img/photos-header.png')
+  ul.photos.menu
+    for menu, i in model
+      li
+        if menu.detail.length > 0
+          a(href="/photos/#{i + 1}") #{menu.text}
+        else
+          a(href="/photos/#{i + 1}") #{menu.text}
